@@ -2,6 +2,7 @@ import { useRef } from "react";
 import { Headline } from "./Headline";
 import { PictureDialog } from "./PictureDialog";
 import type { CardData, CardListData } from "../data";
+import { AnchorWrapper } from "./AnchorWrapper";
 
 export function CardList({ title, listData }: CardListData) {
   return (
@@ -24,16 +25,18 @@ function Card({ name, description, imageURL, alt, imageWebP, height, width, imag
 
   return (
     <li className="flex max-w-93.75 flex-col gap-7.5">
-      <picture onClick={() => dialogRef.current?.showModal()} className="h-75 overflow-hidden">
-        <source srcSet={imageWebP} type="image/webp" />
-        <img
-          src={imageURL}
-          alt={alt}
-          height={height}
-          width={width}
-          className={`${imageClassName ?? ""} h-75 w-full object-cover hover:scale-125 transition-all duration-300 hover:opacity-75`}
-        />
-      </picture>
+      <AnchorWrapper>
+        <picture onClick={() => dialogRef.current?.showModal()} className="h-75 overflow-hidden">
+          <source srcSet={imageWebP} type="image/webp" />
+          <img
+            src={imageURL}
+            alt={alt}
+            height={height}
+            width={width}
+            className={`${imageClassName ?? ""} h-75 w-full object-cover hover:scale-125 transition-all duration-300 hover:opacity-75`}
+          />
+        </picture>
+      </AnchorWrapper>
       <PictureDialog ref={dialogRef} name={name} imageURL={imageURL} alt={alt} imageWebP={imageWebP} />
       <div className="flex flex-col text-[1.3125rem] gap-2.5 px-7.5">
         <h2 className="text-center leading-7.5 font-bold">{name}</h2>
