@@ -1,35 +1,21 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { CardList } from "./components/CardList";
 
 function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    return (
+        <section className="bg-bg text-white h-svh">
+            <article className="flex flex-col gap-7.5 py-30 px-36.75">
+                <h1 className="uppercase text-3xl font-light">
+                    What does cooking mean?
+                </h1>
+            </article>
+            <article className="flex flex-col gap-7.5 py-30 px-36.75">
+                <h1 className="uppercase text-3xl pb-7.5 border-b w-fit mx-auto font-light">
+                    Taste the colours
+                </h1>
+                <CardList />
+            </article>
+        </section>
+    );
 }
 
-export default App
+export default App;
