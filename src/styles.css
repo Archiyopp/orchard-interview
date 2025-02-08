@@ -1,6 +1,14 @@
 @import "tailwindcss";
 
+@font-face {
+    font-family: "Open Sans";
+    font-display: swap;
+    src: url("/public/fonts/OpenSans-VariableFont_wdth,wght.ttf")
+        format("truetype");
+}
+
 @theme {
     --color-bg: #0e1414;
     --color-red-title: #cf1430;
+    --font-open-sans: "Open Sans", sans-serif;
 }
