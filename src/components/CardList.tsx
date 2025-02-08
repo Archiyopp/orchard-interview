@@ -4,7 +4,7 @@ import White from "../assets/white.png";
 
 export function CardList() {
     return (
-        <ul className="grid grid-cols-[repeat(3,375px)] gap-2.5 justify-center">
+        <ul className="grid grid-cols-[375px] lg:grid-cols-[repeat(2,375px)] xl:grid-cols-[repeat(3,375px)] gap-x-2.5 gap-y-7.5 justify-center">
             {cardListData.map((cardData) => (
                 <Card key={cardData.name} {...cardData} />
             ))}
