@@ -4,20 +4,23 @@ import White from "../assets/images/white.png";
 import WhiteWebP from "../assets/images/white.webp";
 import RedWebP from "../assets/images/red.webp";
 import GreenWebP from "../assets/images/green.webp";
-import { Close } from "../assets/icons/close";
 import { useRef } from "react";
-import { Headline } from "./TItle";
+import { Headline } from "./Headline";
+import { PictureDialog } from "./PictureDialog";
 
 export function CardList() {
   return (
-    <ul
-      className="grid grid-cols-[375px] justify-center gap-x-2.5 gap-y-7.5 lg:grid-cols-[repeat(2,375px)]
-        xl:grid-cols-[repeat(3,375px)]"
-    >
-      {cardListData.map((cardData) => (
-        <Card key={cardData.name} {...cardData} />
-      ))}
-    </ul>
+    <article className="flex flex-col gap-7.5 py-30 sm:px-34.75 px-10">
+      <Headline>Taste the colours</Headline>
+      <ul
+        className="grid grid-cols-[375px] justify-center gap-x-2.5 gap-y-7.5 lg:grid-cols-[repeat(2,375px)]
+          xl:grid-cols-[repeat(3,375px)]"
+      >
+        {cardListData.map((cardData) => (
+          <Card key={cardData.name} {...cardData} />
+        ))}
+      </ul>
+    </article>
   );
 }
 
@@ -33,33 +36,13 @@ function Card({ name, description, imageURL, alt, imageWebP }: CardData) {
           alt={alt}
           height={300}
           width={375}
-          className="h-75 w-full object-cover hover:scale-125 transition-all hover:opacity-75"
+          className="h-75 w-full object-cover hover:scale-125 transition-all duration-300 hover:opacity-75"
         />
       </picture>
-      <dialog
-        ref={dialogRef}
-        className="bg-bg open:animate-fade-in-scale m-auto px-12 py-9 backdrop:bg-gray-200/40 backdrop:opacity-60
-          backdrop:blur-sm"
-      >
-        <div className="relative flex flex-col gap-7.5 text-white">
-          <button
-            className="absolute right-0 ml-auto flex size-8 items-center justify-center bg-white font-semibold text-black
-              transition-colors hover:bg-gray-300"
-            onClick={() => dialogRef.current?.close()}
-          >
-            <span className="sr-only">Close</span>
-            <Close aria-hidden />
-          </button>
-          <Headline>{name}</Headline>
-          <picture>
-            <source srcSet={imageWebP} type="image/webp" />
-            <img src={imageURL} alt={alt} className="h-75 object-cover" />
-          </picture>
-        </div>
-      </dialog>
-      <div className="flex flex-col gap-2.5 px-7.5">
-        <h2 className="text-center text-[1.3125rem] leading-7.5 font-bold">{name}</h2>
-        <p className="text-center font-light">{description}</p>
+      <PictureDialog ref={dialogRef} name={name} imageURL={imageURL} alt={alt} imageWebP={imageWebP} />
+      <div className="flex flex-col text-[1.3125rem] gap-2.5 px-7.5">
+        <h2 className="text-center leading-7.5 font-bold">{name}</h2>
+        <p className="text-center font-light leading-7.5">{description}</p>
       </div>
     </li>
   );

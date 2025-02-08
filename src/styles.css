@@ -1,38 +1,38 @@
 @import "tailwindcss";
 
 @font-face {
-    font-family: "Open Sans";
-    font-display: swap;
-    src: url("/public/fonts/OpenSans-VariableFont_wdth,wght.ttf")
-        format("truetype");
+  font-family: "Open Sans";
+  font-display: swap;
+  src: url("/public/fonts/OpenSans-VariableFont_wdth,wght.ttf") format("truetype");
 }
 
 @theme {
-    --animate-fade-in-scale: fade-in-scale 0.3s ease-out;
-    --animate-fade-out-scale: fade-out-scale 0.3s ease-in;
-    --color-bg: #0e1414;
-    --color-red-title: #cf1430;
-    --font-open-sans: "Open Sans", sans-serif;
+  --animate-fade-in-scale: fade-in-scale 0.3s ease-out;
+  --animate-backdrop-fade-in: backdrop-fade-in 0.3s ease-out forwards;
+  --color-bg: #0e1414;
+  --color-red-title: #cf1430;
+  --font-open-sans: "Open Sans", sans-serif;
 
-    @keyframes fade-in-scale {
-        0% {
-            opacity: 0;
-            transform: scale(0.95);
-        }
-        100% {
-            opacity: 1;
-            transform: scale(1);
-        }
+  @keyframes fade-in-scale {
+    0% {
+      opacity: 0;
+      transform: scale(0.95);
+      display: none;
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+      display: block;
+    }
+  }
+
+  @keyframes backdrop-fade-in {
+    0% {
+      background-color: rgba(200, 200, 200, 0);
     }
 
-    @keyframes fade-out-scale {
-        0% {
-            opacity: 1;
-            transform: scale(1);
-        }
-        100% {
-            opacity: 0;
-            transform: scale(0.95);
-        }
+    100% {
+      background-color: rgba(200, 200, 200, 0.3);
     }
+  }
 }
