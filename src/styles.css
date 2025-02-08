@@ -8,7 +8,31 @@
 }
 
 @theme {
+    --animate-fade-in-scale: fade-in-scale 0.3s ease-out;
+    --animate-fade-out-scale: fade-out-scale 0.3s ease-in;
     --color-bg: #0e1414;
     --color-red-title: #cf1430;
     --font-open-sans: "Open Sans", sans-serif;
+
+    @keyframes fade-in-scale {
+        0% {
+            opacity: 0;
+            transform: scale(0.95);
+        }
+        100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    @keyframes fade-out-scale {
+        0% {
+            opacity: 1;
+            transform: scale(1);
+        }
+        100% {
+            opacity: 0;
+            transform: scale(0.95);
+        }
+    }
 }
