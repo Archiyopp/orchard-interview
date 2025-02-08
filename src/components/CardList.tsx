@@ -1,22 +1,17 @@
-import Red from "../assets/images/red.png";
-import Green from "../assets/images/green.png";
-import White from "../assets/images/white.png";
-import WhiteWebP from "../assets/images/white.webp";
-import RedWebP from "../assets/images/red.webp";
-import GreenWebP from "../assets/images/green.webp";
 import { useRef } from "react";
 import { Headline } from "./Headline";
 import { PictureDialog } from "./PictureDialog";
+import type { CardData, CardListData } from "../data";
 
-export function CardList() {
+export function CardList({ title, listData }: CardListData) {
   return (
     <article className="flex flex-col gap-7.5 py-30 sm:px-34.75 px-10">
-      <Headline>Taste the colours</Headline>
+      <Headline>{title}</Headline>
       <ul
         className="grid grid-cols-[375px] justify-center gap-x-2.5 gap-y-7.5 lg:grid-cols-[repeat(2,375px)]
           xl:grid-cols-[repeat(3,375px)]"
       >
-        {cardListData.map((cardData) => (
+        {listData.map((cardData) => (
           <Card key={cardData.name} {...cardData} />
         ))}
       </ul>
@@ -24,7 +19,7 @@ export function CardList() {
   );
 }
 
-function Card({ name, description, imageURL, alt, imageWebP }: CardData) {
+function Card({ name, description, imageURL, alt, imageWebP, height, width, imageClassName }: CardData) {
   const dialogRef = useRef<HTMLDialogElement>(null);
 
   return (
@@ -34,9 +29,9 @@ function Card({ name, description, imageURL, alt, imageWebP }: CardData) {
         <img
           src={imageURL}
           alt={alt}
-          height={300}
-          width={375}
-          className="h-75 w-full object-cover hover:scale-125 transition-all duration-300 hover:opacity-75"
+          height={height}
+          width={width}
+          className={`${imageClassName ?? ""} h-75 w-full object-cover hover:scale-125 transition-all duration-300 hover:opacity-75`}
         />
       </picture>
       <PictureDialog ref={dialogRef} name={name} imageURL={imageURL} alt={alt} imageWebP={imageWebP} />
@@ -47,37 +42,3 @@ function Card({ name, description, imageURL, alt, imageWebP }: CardData) {
     </li>
   );
 }
-
-type CardData = {
-  name: string;
-  description: string;
-  imageURL: string;
-  imageWebP: string;
-  alt: string;
-};
-
-const cardListData: Array<CardData> = [
-  {
-    name: "Red",
-    description: "Red foods remind us of berries and soft fruits, so we anticipate a sweet taste.",
-    imageURL: Red,
-    imageWebP: RedWebP,
-    alt: "Red food",
-  },
-  {
-    name: "Green",
-    description:
-      "Fresh, zingy green colours are reminiscent of unripe fruit, promising sour or acid flavours.",
-    imageURL: Green,
-    imageWebP: GreenWebP,
-    alt: "Green food",
-  },
-  {
-    name: "White",
-    description:
-      "White foods evoke memories of salt and salty flavours, driving the expectation of a savoury treat. ",
-    imageURL: White,
-    imageWebP: WhiteWebP,
-    alt: "White food",
-  },
-];
