@@ -6,10 +6,10 @@ import { AnchorWrapper } from "./AnchorWrapper";
 
 export function CardList({ title, listData }: CardListData) {
   return (
-    <article className="flex flex-col gap-7.5 py-30 sm:px-34.75 px-10">
+    <article className="flex flex-col gap-7.5 px-4 py-30 sm:px-34.75">
       <Headline>{title}</Headline>
       <ul
-        className="grid grid-cols-[375px] justify-center gap-x-2.5 gap-y-7.5 lg:grid-cols-[repeat(2,375px)]
+        className="grid grid-cols-1 justify-center gap-x-2.5 gap-y-7.5 sm:grid-cols-[375px] lg:grid-cols-[repeat(2,375px)]
           xl:grid-cols-[repeat(3,375px)]"
       >
         {listData.map((cardData) => (
@@ -24,7 +24,7 @@ function Card({ name, description, imageURL, alt, imageWebP, height, width, imag
   const dialogRef = useRef<HTMLDialogElement>(null);
 
   return (
-    <li className="flex max-w-93.75 flex-col gap-7.5">
+    <li className="mx-auto flex max-w-93.75 flex-col gap-7.5">
       <AnchorWrapper className="h-75 overflow-hidden">
         <picture onClick={() => dialogRef.current?.showModal()} className="h-75 overflow-hidden">
           <source srcSet={imageWebP} type="image/webp" />
@@ -33,14 +33,14 @@ function Card({ name, description, imageURL, alt, imageWebP, height, width, imag
             alt={alt}
             height={height}
             width={width}
-            className={`${imageClassName ?? ""} h-75 w-full object-cover hover:scale-125 transition-all duration-300 hover:opacity-75`}
+            className={`${imageClassName ?? ""} h-75 w-full object-cover transition-all duration-300 hover:scale-125`}
           />
         </picture>
       </AnchorWrapper>
       <PictureDialog ref={dialogRef} name={name} imageURL={imageURL} alt={alt} imageWebP={imageWebP} />
-      <div className="flex flex-col text-[1.3125rem] gap-2.5 px-7.5">
+      <div className="flex flex-col gap-2.5 px-7.5 text-[1.3125rem]">
         <h2 className="text-center leading-7.5 font-bold">{name}</h2>
-        <p className="text-center font-light leading-7.5">{description}</p>
+        <p className="text-center leading-7.5 font-light">{description}</p>
       </div>
     </li>
   );

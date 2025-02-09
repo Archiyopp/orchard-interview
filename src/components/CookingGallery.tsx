@@ -12,20 +12,20 @@ export function CookingGallery({
 }: CookingGalleryData) {
   return (
     <article
-      className="grid flow sm:grid-cols-2 xl:grid-cols-[754px_375px] gap-7.5 py-30 sm:px-20.75 lg:px-34.75 px-10 justify-center
-        mx-auto"
+      className="mx-auto grid justify-center gap-7.5 px-4 py-30 sm:grid-cols-2 sm:px-20.75 lg:px-34.75
+        xl:grid-cols-[754px_375px]"
     >
-      <div className="grid xl:grid-cols-2 col-span-1 xl:grid-rows-2 gap-2.5 justify-center max-w-fit order-2 sm:order-1">
+      <div className="order-2 col-span-1 grid max-w-fit justify-center gap-2.5 sm:order-1 xl:grid-cols-2 xl:grid-rows-2">
         {galleryImages.map((image) => (
           <GalleryPicture key={image.alt} {...image} />
         ))}
       </div>
-      <div className="flex flex-col gap-7.5 col-span-1 order-1 sm:order-2">
+      <div className="order-1 col-span-1 flex flex-col gap-7.5 sm:order-2">
         <Headline>What does cooking mean?</Headline>
-        <p className="font-light text-[1.3125rem] leading-7.5">{description}</p>
+        <p className="text-[1.3125rem] leading-7.5 font-light">{description}</p>
         <div className="flex flex-col gap-2.5">
-          <h3 className="text-red-title uppercase text-[0.9375rem]">{captionTitle}</h3>
-          <p className="font-bold text-[1.3125rem]">{captionText}</p>
+          <h3 className="text-red-title text-[0.9375rem] uppercase">{captionTitle}</h3>
+          <p className="text-[1.3125rem] font-bold">{captionText}</p>
         </div>
       </div>
     </article>
@@ -36,10 +36,10 @@ function GalleryPicture({ imgURL, imgWebp, alt, height, pictureClassName, classN
   const dialogRef = useRef<HTMLDialogElement>(null);
   return (
     <>
-      <AnchorWrapper className={`${pictureClassName ?? ""} overflow-hidden sm:max-w-93.75 cursor-pointer`}>
+      <AnchorWrapper className={`${pictureClassName ?? ""} cursor-pointer overflow-hidden sm:max-w-93.75`}>
         <picture
           key={alt}
-          className={`${pictureClassName ?? ""} overflow-hidden sm:max-w-93.75 cursor-pointer`}
+          className={`${pictureClassName ?? ""} cursor-pointer overflow-hidden sm:max-w-93.75`}
           onClick={() => dialogRef.current?.showModal()}
         >
           <source srcSet={imgWebp} type="image/webp" />
@@ -47,7 +47,7 @@ function GalleryPicture({ imgURL, imgWebp, alt, height, pictureClassName, classN
             src={imgURL}
             alt={alt}
             height={height}
-            className={`${className ?? ""} object-cover hover:scale-125 h-full transition-all duration-300 hover:opacity-75`}
+            className={`${className ?? ""} h-full object-cover transition-all duration-300 hover:scale-125`}
           />
         </picture>
       </AnchorWrapper>
