@@ -1,50 +1,34 @@
-# React + TypeScript + Vite
+# Orchard Interview Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a project for the Orchard Interview. It displays two components with images and a few paragraphs of text. The project is built using React.js, TypeScript, and Tailwind CSS.
 
-Currently, two official plugins are available:
+React was chosen because of the ease of use, my familiarity with it, and the ability to create reusable components, it also has a large community and a lot of resources available which could have helped in case I needed to add more interactivity to the project.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Typescript was chosen because of the ability to catch errors at compile time and the ability to create type definitions for the project.
 
-## Expanding the ESLint configuration
+Tailwind CSS was chosen because of its ease of use, my familiarity with it and because it can help prototype much faster.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+I also added prettier to the project, which helps me stay focused on the code and not get distracted by the formatting.
 
-- Configure the top-level `parserOptions` property like this:
+## Getting Started
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+To run this project, you need to have [Node.js](https://nodejs.org/en/download/) and [pnpm](https://pnpm.io/installation) installed. Then run the following commands for a development server:
+
+```bash
+pnpm install
+pnpm dev
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+or for a production build:
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+```bash
+pnpm install
+pnpm build && pnpm preview
 ```
+
+## Deploying
+
+You can deploy this project to any hosting provider that can deploy static HTML and JavaScript files. Here are a few options:
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FArchiyopp%2Forchard-interview)
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/Archiyopp/orchard-interview)

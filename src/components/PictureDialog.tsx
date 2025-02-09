@@ -12,8 +12,8 @@ export function PictureDialog({ ref, name, imageURL, alt, imageWebP }: Props) {
   return (
     <dialog
       ref={ref}
-      className="bg-bg open:animate-fade-in-scale m-auto px-12 py-9 backdrop:bg-gray-300/30
-        open:backdrop:animate-backdrop-fade-in max-w-xl md:max-w-2xl lg:max-w-4xl"
+      className="bg-bg open:animate-fade-in-scale open:backdrop:animate-backdrop-fade-in m-auto max-w-xl px-12 py-9
+        backdrop:bg-gray-300/30 md:max-w-2xl lg:max-w-4xl"
     >
       <div className="relative flex flex-col gap-7.5 text-white">
         <button

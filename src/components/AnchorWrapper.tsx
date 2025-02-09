@@ -5,7 +5,7 @@ export function AnchorWrapper({ children, className }: PropsWithChildren<{ class
     <a
       className={className}
       onClick={(e) => {
-        console.log(e.target);
+        console.log("%c Logging the clicked element: ", "color: green; font-weight: bold", e.target);
       }}
     >
       {children}
