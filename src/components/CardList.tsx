@@ -25,7 +25,7 @@ function Card({ name, description, imageURL, alt, imageWebP, height, width, imag
 
   return (
     <li className="flex max-w-93.75 flex-col gap-7.5">
-      <AnchorWrapper>
+      <AnchorWrapper className="h-75 overflow-hidden">
         <picture onClick={() => dialogRef.current?.showModal()} className="h-75 overflow-hidden">
           <source srcSet={imageWebP} type="image/webp" />
           <img
