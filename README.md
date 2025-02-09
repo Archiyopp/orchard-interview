@@ -2,6 +2,8 @@
 
 This is a project for the Orchard Interview. It displays two components with images and a few paragraphs of text.
 
+![Website Screenshot](https://github.com/user-attachments/assets/852be87e-ac2e-4ad2-a61f-dd089ccbb8cb)
+
 ## Technologies
 
 The project is built using React.js, TypeScript, and Tailwind CSS.
