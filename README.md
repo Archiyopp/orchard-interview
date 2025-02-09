@@ -1,6 +1,10 @@
 # Orchard Interview Project
 
-This is a project for the Orchard Interview. It displays two components with images and a few paragraphs of text. The project is built using React.js, TypeScript, and Tailwind CSS.
+This is a project for the Orchard Interview. It displays two components with images and a few paragraphs of text.
+
+## Technologies
+
+The project is built using React.js, TypeScript, and Tailwind CSS.
 
 React was chosen because of the ease of use, my familiarity with it, and the ability to create reusable components, it also has a large community and a lot of resources available which could have helped in case I needed to add more interactivity to the project.
 
@@ -10,9 +14,9 @@ Tailwind CSS was chosen because of its ease of use, my familiarity with it and b
 
 I also added prettier to the project, which helps me stay focused on the code and not get distracted by the formatting.
 
-## Getting Started
+## Setup
 
-To run this project, you need to have [Node.js](https://nodejs.org/en/download/) and [pnpm](https://pnpm.io/installation) installed. Then run the following commands for a development server:
+To run this project, you need to have [Node.js](https://nodejs.org/en/download/) and [pnpm](https://pnpm.io/installation) installed. Then run the following commands in a terminal for a development server:
 
 ```bash
 pnpm install
@@ -23,7 +27,8 @@ or for a production build:
 
 ```bash
 pnpm install
-pnpm build && pnpm preview
+pnpm build
+pnpm preview
 ```
 
 ## Deploying
