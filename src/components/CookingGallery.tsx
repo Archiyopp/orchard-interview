@@ -1,14 +1,18 @@
+"use client";
+
 import { useRef } from "react";
 import { Headline } from "./Headline";
 import { PictureDialog } from "./PictureDialog";
 import type { CookingGalleryData, GalleryImage } from "../data";
 import { AnchorWrapper } from "./AnchorWrapper";
+import { GlowingEffect } from "./GlowingEffect";
 
 export function CookingGallery({
   galleryImages,
   description,
   captionTitle,
   captionText,
+  title,
 }: CookingGalleryData) {
   return (
     <article
@@ -21,7 +25,7 @@ export function CookingGallery({
         ))}
       </div>
       <div className="order-1 col-span-1 flex flex-col gap-7.5 sm:order-2">
-        <Headline>What does cooking mean?</Headline>
+        <Headline>{title}</Headline>
         <p className="text-[1.3125rem] leading-7.5 font-light">{description}</p>
         <div className="flex flex-col gap-2.5">
           <h3 className="text-red-title text-[0.9375rem] uppercase">{captionTitle}</h3>
@@ -35,8 +39,18 @@ export function CookingGallery({
 function GalleryPicture({ imgURL, imgWebp, alt, height, pictureClassName, className }: GalleryImage) {
   const dialogRef = useRef<HTMLDialogElement>(null);
   return (
-    <>
-      <AnchorWrapper className={`${pictureClassName ?? ""} cursor-pointer overflow-hidden sm:max-w-93.75`}>
+    <div className={`${pictureClassName ?? ""} relative sm:max-w-93.75`}>
+      <GlowingEffect
+        borderWidth={2}
+        spread={80}
+        glow={true}
+        disabled={false}
+        proximity={64}
+        inactiveZone={0.01}
+      />
+      <AnchorWrapper
+        className={`${pictureClassName ?? ""} block cursor-pointer overflow-hidden sm:max-w-93.75`}
+      >
         <picture
           key={alt}
           className={`${pictureClassName ?? ""} cursor-pointer overflow-hidden sm:max-w-93.75`}
@@ -52,6 +66,6 @@ function GalleryPicture({ imgURL, imgWebp, alt, height, pictureClassName, classN
         </picture>
       </AnchorWrapper>
       <PictureDialog ref={dialogRef} name={alt} imageURL={imgURL} alt={alt} imageWebP={imgWebp} />
-    </>
+    </div>
   );
 }

@@ -3,6 +3,7 @@ import { Headline } from "./Headline";
 import { PictureDialog } from "./PictureDialog";
 import type { CardData, CardListData } from "../data";
 import { AnchorWrapper } from "./AnchorWrapper";
+import { GlowingEffect } from "./GlowingEffect";
 
 export function CardList({ title, listData }: CardListData) {
   return (
@@ -25,18 +26,28 @@ function Card({ name, description, imageURL, alt, imageWebP, height, width, imag
 
   return (
     <li className="mx-auto flex max-w-93.75 flex-col gap-7.5">
-      <AnchorWrapper className="h-75 overflow-hidden">
-        <picture onClick={() => dialogRef.current?.showModal()} className="h-75 overflow-hidden">
-          <source srcSet={imageWebP} type="image/webp" />
-          <img
-            src={imageURL}
-            alt={alt}
-            height={height}
-            width={width}
-            className={`${imageClassName ?? ""} h-75 w-full object-cover transition-all duration-300 hover:scale-125`}
-          />
-        </picture>
-      </AnchorWrapper>
+      <div className="relative">
+        <GlowingEffect
+          borderWidth={2}
+          spread={80}
+          glow={true}
+          disabled={false}
+          proximity={64}
+          inactiveZone={0.01}
+        />
+        <AnchorWrapper className="block h-75 cursor-pointer overflow-hidden">
+          <picture onClick={() => dialogRef.current?.showModal()} className="h-75 overflow-hidden">
+            <source srcSet={imageWebP} type="image/webp" />
+            <img
+              src={imageURL}
+              alt={alt}
+              height={height}
+              width={width}
+              className={`${imageClassName ?? ""} h-75 w-full object-cover transition-all duration-300 hover:scale-125`}
+            />
+          </picture>
+        </AnchorWrapper>
+      </div>
       <PictureDialog ref={dialogRef} name={name} imageURL={imageURL} alt={alt} imageWebP={imageWebP} />
       <div className="flex flex-col gap-2.5 px-7.5 text-[1.3125rem]">
         <h2 className="text-center leading-7.5 font-bold">{name}</h2>
