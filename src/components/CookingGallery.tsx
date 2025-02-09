@@ -42,7 +42,7 @@ function GalleryPicture({ imgURL, imgWebp, alt, height, pictureClassName, classN
     <div className={`${pictureClassName ?? ""} relative sm:max-w-93.75`}>
       <GlowingEffect
         borderWidth={2}
-        spread={80}
+        spread={40}
         glow={true}
         disabled={false}
         proximity={64}

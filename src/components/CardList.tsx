@@ -29,7 +29,7 @@ function Card({ name, description, imageURL, alt, imageWebP, height, width, imag
       <div className="relative">
         <GlowingEffect
           borderWidth={2}
-          spread={80}
+          spread={40}
           glow={true}
           disabled={false}
           proximity={64}
