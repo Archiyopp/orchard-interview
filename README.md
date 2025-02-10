@@ -33,6 +33,14 @@ pnpm build
 pnpm preview
 ```
 
+## Docker
+
+Use docker to deploy this app locally using the folling command
+
+```bash
+docker compose up
+```
+
 ## Deploying
 
 You can deploy this project to any hosting provider that can deploy static HTML and JavaScript files. Here are a few options:
